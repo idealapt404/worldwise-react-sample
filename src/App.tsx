@@ -4,17 +4,18 @@ import Product from './pages/Product.tsx';
 import Pricing from './pages/Pricing.tsx';
 import HomePage from './pages/HomePage.tsx';
 import PageNotFound from './pages/PageNotFound.tsx';
+import AppLayout from './pages/AppLayout.tsx';
 
 function App() {
 
   return (
     <div>
-      <h1>Hello Router!</h1>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="product" element={<Product />} />
           <Route path="pricing" element={<Pricing />} />
+          <Route path="app" element={<AppLayout />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
