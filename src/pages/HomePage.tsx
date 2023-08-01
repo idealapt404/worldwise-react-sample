@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import PageNav from '../components/PageNav.tsx';
 import styles from './HomePage.module.css';
 import { Link } from 'react-router-dom';
+
+export interface ParentProps {
+  children: ReactNode;
+}
 
 const HomePage: React.FC = () => {
   return (

@@ -1,18 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
 import PageNav from '../components/PageNav.tsx';
 import Button from '../components/Button.tsx';
+import { useAuth } from '../contexts/FakeAuthContext.tsx';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("john.doe@example.com");
   const [password, setPassword] = useState("qwerty");
+  const { login, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email && password) {
-      //login(email, password);
+    if (login && email && password) {
+      login(email, password);
     }
   }
+
+  useEffect(
+    function () {
+      if (isAuthenticated) {
+        navigate('/app', { replace: true });
+      }
+    },
+    [isAuthenticated, navigate]
+  );
 
   return (
     <main className={styles.login}>

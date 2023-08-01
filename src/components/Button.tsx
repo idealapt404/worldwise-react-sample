@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react';
-import styles from 'Button.module.css';
+import React  from 'react';
+import styles from './Button.module.css';
+import { ParentProps } from '../pages/HomePage.tsx';
 
-interface ButtonProps {
-  children: ReactNode;
+interface ButtonProps extends ParentProps {
   onClick?: () => void;
   type: string;
 }
